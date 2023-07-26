@@ -1,0 +1,24 @@
+{
+  "appTitle": "TopTop",
+  "homeBottomNavigationBar": "Trang chủ",
+  "shopBottomNavigationBar": "Shop",
+  "inboxBottomNavigationBar": "Hộp thư",
+  "userBottomNavigationBar": "Hồ sơ",
+  "noConnectionError": "Sambungan jaringan lambat atau sedang tidak tersedia. Silakan periksa pengaturan internet anda.",
+  "password": "Kata sandi",
+  "serverError": "Terjadi kesalahan server. Silakan coba lagi nanti.",
+  "shortPasswordVerificationText": "Kata sandi harus memiliki minimal 6 karakter",
+  "signIn": "Masuk",
+  "signInStatusError": "Gagal saat mendapatkan status sign in",
+  "signOut": "Keluar",
+  "validEmailVerificationText": "Harap masukkan alamat email yang valid",
+  "emptyStringVerificationText": "Bagian ini tidak boleh kosong",
+    "pageSettingsInputLanguage": "{locale, select, en {English} vi {VietNamese} other {-}}",
+  "welcomeUser": "Selamat datang {userName}",
+  "@welcomeUser": {
+    "placeholders": {
+      "userName": {}
+    }
+  }
+  
+}

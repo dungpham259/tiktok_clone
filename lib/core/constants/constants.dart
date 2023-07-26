@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tiktok/features/profile/view/profile_screen.dart';
 import 'package:tiktok/features/shop/view/pages/shop.dart';
 import 'package:tiktok/gen/assets.gen.dart';
+import 'package:tiktok/gen/fonts.gen.dart';
+import 'package:tiktok/l10n/l10n.dart';
 
 final $constants = Constants();
 
@@ -69,7 +71,7 @@ class _Palette {
 class _Theme {
   final tryToGetColorPaletteFromWallpaper = true;
   final defaultThemeColor = const Color(0xFF161722);
-  final defaultFontFamily = 'ProximaNova';
+  final defaultFontFamily = FontFamily.proximaNova;
   final double defaultElevation = 0;
   final double defaultBorderRadius = 24;
 }
@@ -85,16 +87,18 @@ class _Navigation {
       ];
 
   List<BottomNavigationBarItem> bottomNavigationBarItems(
-          BuildContext context) =>
+    BuildContext context,
+    AppLocalizations localizations,
+  ) =>
       [
         BottomNavigationBarItem(
           icon: Assets.icons.svg.home.svg(),
-          label: 'Trang chủ',
+          label: localizations.homeBottomNavigationBar,
           activeIcon: Assets.icons.svg.homeActive.svg(),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.shopping_bag),
-          label: 'Shop',
+          label: localizations.shopBottomNavigationBar,
         ),
         BottomNavigationBarItem(
           icon: SizedBox(),
@@ -102,11 +106,11 @@ class _Navigation {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.message_rounded),
-          label: 'Hộp Thư',
+          label: localizations.inboxBottomNavigationBar,
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),
-          label: 'Hồ sơ',
+          label: localizations.userBottomNavigationBar,
         ),
       ];
 }

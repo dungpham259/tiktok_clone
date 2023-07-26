@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tiktok/core/constants/constants.dart';
 import 'package:tiktok/features/home/cubit/home_cubit.dart';
 import 'package:tiktok/features/home/views/widgets/plus_button.dart';
+import 'package:tiktok/l10n/l10n.dart';
 import 'package:tiktok/modules/dependency_injection/di.dart';
 
 class HomePage extends StatelessWidget {
@@ -33,20 +34,27 @@ class HomePage extends StatelessWidget {
             ),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerDocked,
-            bottomNavigationBar: BottomNavigationBar(
-              onTap: (value) {
-                context.read<HomeCubit>().changeIndex(value);
-              },
-              type: BottomNavigationBarType.fixed,
-              selectedFontSize: 12,
-              backgroundColor: currentIndex == 0 ? Colors.black : Colors.white,
-              // backgroundColor: kDarkMain,
-              unselectedItemColor: const Color(0xFF8A8B8F),
-              selectedItemColor:
-                  currentIndex == 0 ? Colors.white : Colors.black,
-              currentIndex: currentIndex,
-              items: $constants.navigation.bottomNavigationBarItems(context),
-            ),
+            bottomNavigationBar: Builder(builder: (context) {
+              final localizations = context.localizations;
+              return BottomNavigationBar(
+                onTap: (value) {
+                  context.read<HomeCubit>().changeIndex(value);
+                },
+                type: BottomNavigationBarType.fixed,
+                selectedFontSize: 12,
+                backgroundColor:
+                    currentIndex == 0 ? Colors.black : Colors.white,
+                // backgroundColor: kDarkMain,
+                unselectedItemColor: const Color(0xFF8A8B8F),
+                selectedItemColor:
+                    currentIndex == 0 ? Colors.white : Colors.black,
+                currentIndex: currentIndex,
+                items: $constants.navigation.bottomNavigationBarItems(
+                  context,
+                  localizations,
+                ),
+              );
+            }),
             // Center(
             //   child:
             // ),
