@@ -4,5 +4,6 @@ part of 'app_cubit.dart';
 class AppState with _$AppState {
   const factory AppState({
     @Default(UIInitial()) UIStatus status,
+    @Default(AppConfig.defaultLocale) String locale,
   }) = _AppState;
 }

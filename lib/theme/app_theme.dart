@@ -6,16 +6,16 @@ import 'package:tiktok/theme/color/app_color_scheme.dart';
 import 'package:tiktok/theme/text/app_text_theme.dart';
 import 'package:tiktok/theme/text/app_typography.dart';
 
-Future<ThemeData> createTheme({
+ThemeData getTheme({
   Color? color,
-  required Brightness brightness,
-}) async {
+  Brightness brightness = Brightness.dark,
+}) {
   final colorScheme = _getColorScheme(color: color, brightness: brightness);
-  final dynamicColorScheme = await _getDynamicColors(brightness: brightness);
+  // final dynamicColorScheme = await _getDynamicColors(brightness: brightness);
   final appColorScheme = _getAppColorScheme(
     color: color,
     colorScheme: colorScheme,
-    dynamicColorScheme: dynamicColorScheme,
+    // dynamicColorScheme: dynamicColorScheme,
     brightness: brightness,
   );
 

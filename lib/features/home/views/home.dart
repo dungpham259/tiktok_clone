@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tiktok/core/constants/constants.dart';
 import 'package:tiktok/features/home/cubit/home_cubit.dart';
-import 'package:tiktok/features/home/views/widgets/plus_button.dart';
 import 'package:tiktok/l10n/l10n.dart';
 import 'package:tiktok/modules/dependency_injection/di.dart';
 
@@ -23,15 +22,15 @@ class HomePage extends StatelessWidget {
               index: currentIndex,
               children: $constants.navigation.bottomNavigationScreens(),
             ),
-            floatingActionButton: Padding(
-              padding: const EdgeInsets.only(top: 47),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: PlusButton(
-                  currentIndex: currentIndex,
-                ),
-              ),
-            ),
+            // floatingActionButton: Padding(
+            //   padding: const EdgeInsets.only(top: 47),
+            //   child: Padding(
+            //     padding: const EdgeInsets.all(8.0),
+            //     child: PlusButton(
+            //       currentIndex: currentIndex,
+            //     ),
+            //   ),
+            // ),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerDocked,
             bottomNavigationBar: Builder(builder: (context) {
@@ -52,6 +51,7 @@ class HomePage extends StatelessWidget {
                 items: $constants.navigation.bottomNavigationBarItems(
                   context,
                   localizations,
+                  currentIndex,
                 ),
               );
             }),

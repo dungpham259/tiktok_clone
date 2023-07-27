@@ -8,6 +8,7 @@ import 'package:tiktok/gen/localization_gen/app_localizations.dart';
 import 'package:tiktok/modules/bloc_observer/ui_status.dart';
 import 'package:tiktok/modules/dependency_injection/di.dart';
 import 'package:tiktok/router/app_router.dart';
+import 'package:tiktok/theme/app_theme.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -60,18 +61,7 @@ class _App extends StatelessWidget {
 
     return MaterialApp.router(
       title: $constants.strings.appName,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch(
-          backgroundColor: Colors.white,
-        ),
-        dividerTheme: const DividerThemeData(
-          color: Colors.grey,
-        ),
-
-        // splashColor: Colors.black,
-
-        useMaterial3: true,
-      ),
+      theme: getTheme(brightness: Brightness.light),
       locale: Locale('en'),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,

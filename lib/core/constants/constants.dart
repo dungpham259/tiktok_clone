@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok/features/home/views/widgets/plus_button.dart';
 import 'package:tiktok/features/profile/view/profile_screen.dart';
 import 'package:tiktok/features/shop/view/pages/shop.dart';
 import 'package:tiktok/gen/assets.gen.dart';
@@ -89,6 +90,7 @@ class _Navigation {
   List<BottomNavigationBarItem> bottomNavigationBarItems(
     BuildContext context,
     AppLocalizations localizations,
+    int currentIndex,
   ) =>
       [
         BottomNavigationBarItem(
@@ -101,7 +103,9 @@ class _Navigation {
           label: localizations.shopBottomNavigationBar,
         ),
         BottomNavigationBarItem(
-          icon: SizedBox(),
+          icon: PlusButton(
+            currentIndex: currentIndex,
+          ),
           label: '',
         ),
         BottomNavigationBarItem(

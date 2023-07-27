@@ -22,6 +22,15 @@ class AppLocalizationsVi extends AppLocalizations {
   String get userBottomNavigationBar => 'Hồ sơ';
 
   @override
+  String get followingCountInfo => 'Đang follow';
+
+  @override
+  String get followerCountInfo => 'Follower';
+
+  @override
+  String get likeCountInfo => 'Thích';
+
+  @override
   String get noConnectionError => 'Sambungan jaringan lambat atau sedang tidak tersedia. Silakan periksa pengaturan internet anda.';
 
   @override

@@ -120,8 +120,26 @@ abstract class AppLocalizations {
   /// No description provided for @userBottomNavigationBar.
   ///
   /// In en, this message translates to:
-  /// **'User'**
+  /// **'Profile'**
   String get userBottomNavigationBar;
+
+  /// No description provided for @followingCountInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Following'**
+  String get followingCountInfo;
+
+  /// No description provided for @followerCountInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Follower'**
+  String get followerCountInfo;
+
+  /// No description provided for @likeCountInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Likes'**
+  String get likeCountInfo;
 
   /// No description provided for @noConnectionError.
   ///

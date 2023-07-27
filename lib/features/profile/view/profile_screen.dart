@@ -160,16 +160,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 class MySliverAppBar extends StatelessWidget {
   const MySliverAppBar({super.key});
 
-  ///Header collapsed height
-  final minHeight = 120.0;
-
-  ///Header expanded height
-  final maxHeight = 400.0;
-
-  final tabBar = const TabBar(
-    tabs: <Widget>[Text('Tab1'), Text('Tab2')],
-  );
-
   @override
   Widget build(BuildContext context) {
     return const SliverPersistentHeader(

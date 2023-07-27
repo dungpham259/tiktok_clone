@@ -19,7 +19,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get inboxBottomNavigationBar => 'Inbox';
 
   @override
-  String get userBottomNavigationBar => 'User';
+  String get userBottomNavigationBar => 'Profile';
+
+  @override
+  String get followingCountInfo => 'Following';
+
+  @override
+  String get followerCountInfo => 'Follower';
+
+  @override
+  String get likeCountInfo => 'Likes';
 
   @override
   String get noConnectionError => 'Slow or no network connection. Please check your internet settings.';
