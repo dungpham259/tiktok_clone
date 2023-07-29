@@ -48,7 +48,7 @@ class PlusButton extends StatelessWidget {
             ),
             Icon(
               Icons.add,
-              size: 28,
+              size: 22,
               color: currentIndex == 0 ? Colors.black : Colors.white,
             )
           ],

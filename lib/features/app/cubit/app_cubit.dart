@@ -12,13 +12,9 @@ part 'app_state.dart';
 
 @lazySingleton
 class AppCubit extends Cubit<AppState> {
-  AppCubit({
-    required AppService appService,
-  }) : super(AppState()) {
-    _appService = appService;
-  }
+  AppCubit(this._appService) : super(AppState()) {}
 
-  late final AppService _appService;
+  final AppService _appService;
 
   FutureOr<void> initialApp() async {
     emit(
@@ -26,10 +22,12 @@ class AppCubit extends Cubit<AppState> {
         status: UIStatus.loading(),
       ),
     );
+    String locale = _appService.locale;
     await Future.delayed(Duration(seconds: 1));
     emit(
       state.copyWith(
         status: UIStatus.loadSuccess(),
+        locale: locale,
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok/theme/app_theme.dart';
 
 extension ContextExtensions on BuildContext {
   double get screenHeight => MediaQuery.of(this).size.height;
@@ -13,18 +14,20 @@ extension ContextExtensions on BuildContext {
 
   double get getBottomBarHeight => kBottomNavigationBarHeight;
 
-  ColorScheme get getTheme => Theme.of(this).colorScheme;
+  ColorScheme get getColorSchemeTheme => Theme.of(this).colorScheme;
+  ThemeData get theme => getTheme();
 
   ColorScheme get getPrimaryContainer => Theme.of(this).colorScheme;
 
   bool get isDarkMode => Theme.of(this).brightness == Brightness.dark;
 
-  TextTheme get getTextTheme => Theme.of(this).textTheme;
+  TextTheme get textTheme => theme.textTheme;
 
-  Color get getPrimaryColor =>
-      ElevationOverlay.colorWithOverlay(getTheme.surface, getTheme.primary, 3);
+  Color get getPrimaryColor => ElevationOverlay.colorWithOverlay(
+      getColorSchemeTheme.surface, getColorSchemeTheme.primary, 3);
 
-  Color get getCustomOnPrimaryColor => getTheme.primary.withOpacity(0.5);
+  Color get getCustomOnPrimaryColor =>
+      getColorSchemeTheme.primary.withOpacity(0.5);
 /*   return ElevationOverlay.colorWithOverlay(
     getTheme(context).primary,
     getTheme(context).background,

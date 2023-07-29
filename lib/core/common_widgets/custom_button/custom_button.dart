@@ -40,13 +40,13 @@ class _CustomButtonState extends State<CustomButton> {
           : context.getPrimaryColor,
       controller: widget.controller,
       onPressed: widget.onPressed,
-      valueColor: context.getTheme.primary,
+      valueColor: context.theme.primaryColor,
       resetAfterDuration: widget.resetAfterDuration,
       animateOnTap: widget.animateOnTap,
       child: AutoSizeText(
         widget.text,
-        style: context.getTextTheme.titleMedium!.apply(
-          color: Colors.white,
+        style: context.textTheme.titleMedium!.apply(
+          color: const Color.fromARGB(255, 164, 136, 136),
         ),
       ),
     );

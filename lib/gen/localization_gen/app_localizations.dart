@@ -141,6 +141,30 @@ abstract class AppLocalizations {
   /// **'Likes'**
   String get likeCountInfo;
 
+  /// No description provided for @yourOrders.
+  ///
+  /// In en, this message translates to:
+  /// **'Your orders'**
+  String get yourOrders;
+
+  /// No description provided for @addYours.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Yours'**
+  String get addYours;
+
+  /// No description provided for @editProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Profile'**
+  String get editProfile;
+
+  /// No description provided for @addFriends.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Friends'**
+  String get addFriends;
+
   /// No description provided for @noConnectionError.
   ///
   /// In en, this message translates to:

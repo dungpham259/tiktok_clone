@@ -19,9 +19,7 @@ Future<void> bootstrap({
   Logger.level = Level.verbose;
   await flavorConfiguration?.call();
 
-  configureDependencies();
-
-  await getIt.allReady();
+  await configureDependencies();
 
   Bloc.observer = AppBlocObserver();
 

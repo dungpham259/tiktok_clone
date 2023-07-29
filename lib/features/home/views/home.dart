@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tiktok/core/constants/constants.dart';
+import 'package:tiktok/core/constants/shortcuts.dart';
 import 'package:tiktok/features/home/cubit/home_cubit.dart';
 import 'package:tiktok/l10n/l10n.dart';
 import 'package:tiktok/modules/dependency_injection/di.dart';
@@ -10,6 +11,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextStyle bottomBarTextStyle = context.theme.textTheme.titleSmall!
+        .copyWith(fontSize: 12, fontWeight: FontWeight.w600);
     return BlocProvider(
       create: (context) {
         return getIt<HomeCubit>();
@@ -22,39 +25,36 @@ class HomePage extends StatelessWidget {
               index: currentIndex,
               children: $constants.navigation.bottomNavigationScreens(),
             ),
-            // floatingActionButton: Padding(
-            //   padding: const EdgeInsets.only(top: 47),
-            //   child: Padding(
-            //     padding: const EdgeInsets.all(8.0),
-            //     child: PlusButton(
-            //       currentIndex: currentIndex,
-            //     ),
-            //   ),
-            // ),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerDocked,
-            bottomNavigationBar: Builder(builder: (context) {
-              final localizations = context.localizations;
-              return BottomNavigationBar(
-                onTap: (value) {
-                  context.read<HomeCubit>().changeIndex(value);
-                },
-                type: BottomNavigationBarType.fixed,
-                selectedFontSize: 12,
-                backgroundColor:
-                    currentIndex == 0 ? Colors.black : Colors.white,
-                // backgroundColor: kDarkMain,
-                unselectedItemColor: const Color(0xFF8A8B8F),
-                selectedItemColor:
-                    currentIndex == 0 ? Colors.white : Colors.black,
-                currentIndex: currentIndex,
-                items: $constants.navigation.bottomNavigationBarItems(
-                  context,
-                  localizations,
-                  currentIndex,
-                ),
-              );
-            }),
+            bottomNavigationBar: Builder(
+              builder: (context) {
+                final localizations = context.localizations;
+                return BottomNavigationBar(
+                  onTap: (value) {
+                    context.read<HomeCubit>().changeIndex(value);
+                  },
+                  type: BottomNavigationBarType.fixed,
+                  selectedFontSize: 12,
+                  selectedLabelStyle: bottomBarTextStyle,
+                  unselectedLabelStyle: bottomBarTextStyle,
+                  backgroundColor: currentIndex == 0
+                      ? $constants.appColor.kDarkMain
+                      : $constants.appColor.kWhite,
+                  // backgroundColor: kDarkMain,
+                  unselectedItemColor: $constants.appColor.kUnselectedItemColor,
+                  selectedItemColor: currentIndex == 0
+                      ? $constants.appColor.kWhite
+                      : $constants.appColor.kDarkMain,
+                  currentIndex: currentIndex,
+                  items: $constants.navigation.bottomNavigationBarItems(
+                    context,
+                    localizations,
+                    currentIndex,
+                  ),
+                );
+              },
+            ),
             // Center(
             //   child:
             // ),

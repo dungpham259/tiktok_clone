@@ -3,19 +3,16 @@ import 'dart:async';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tiktok/core/utils/method/aliases.dart';
-import 'package:tiktok/modules/dependency_injection/di.dart';
 import 'package:tiktok/services/local_storage_service/local_storage_service.dart';
 
-@Singleton(as: LocalStorageService)
+@LazySingleton(as: LocalStorageService)
 class SharedPreferencesService implements LocalStorageService {
-  SharedPreferencesService() {
-    init();
-  }
-  late final SharedPreferences _pref;
+  SharedPreferencesService(this._pref);
+  final SharedPreferences _pref;
 
   @override
   FutureOr<void> init() async {
-    _pref = getIt<SharedPreferences>();
+    // _pref = getIt<SharedPreferences>();
   }
 
   @override

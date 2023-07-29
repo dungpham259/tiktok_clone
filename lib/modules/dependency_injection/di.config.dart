@@ -15,10 +15,10 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart'
     as _i8;
-import 'package:shared_preferences/shared_preferences.dart' as _i13;
+import 'package:shared_preferences/shared_preferences.dart' as _i11;
 
-import '../../data/repositories/user/remote/user_reposiory.dart' as _i14;
-import '../../data/repositories/user/remote/user_repository_impl.dart' as _i15;
+import '../../data/repositories/user/remote/user_reposiory.dart' as _i12;
+import '../../data/repositories/user/remote/user_repository_impl.dart' as _i13;
 import '../../features/app/cubit/app_cubit.dart' as _i18;
 import '../../features/home/cubit/home_cubit.dart' as _i7;
 import '../../services/app_service/app_service.dart' as _i16;
@@ -26,11 +26,12 @@ import '../../services/app_service/app_service_impl.dart' as _i17;
 import '../../services/crashlytics_service/crashlytics_service.dart' as _i3;
 import '../../services/crashlytics_service/firebase_crashlytics_service.dart'
     as _i4;
-import '../../services/local_storage_service/local_storage_service.dart' as _i9;
+import '../../services/local_storage_service/local_storage_service.dart'
+    as _i14;
 import '../../services/local_storage_service/shared_preferences_service.dart'
-    as _i10;
-import '../../services/log_service/debug_log_service.dart' as _i12;
-import '../../services/log_service/log_service.dart' as _i11;
+    as _i15;
+import '../../services/log_service/debug_log_service.dart' as _i10;
+import '../../services/log_service/log_service.dart' as _i9;
 import 'dio_client_di.dart' as _i19;
 import 'network_info_di.dart' as _i21;
 import 'secure_storage_di.dart' as _i20;
@@ -58,17 +59,18 @@ Future<_i1.GetIt> init(
   gh.factory<_i6.FlutterSecureStorage>(() => secureStorageInjection.storage());
   gh.lazySingleton<_i7.HomeCubit>(() => _i7.HomeCubit());
   gh.factory<_i8.InternetConnection>(() => networkInfoInjection.networkInfo);
-  gh.singleton<_i9.LocalStorageService>(_i10.SharedPreferencesService());
-  gh.singleton<_i11.LogService>(_i12.DebugLogService());
-  await gh.factoryAsync<_i13.SharedPreferences>(
+  gh.singleton<_i9.LogService>(_i10.DebugLogService());
+  await gh.singletonAsync<_i11.SharedPreferences>(
     () => sharedPreferenceModule.prefs,
     preResolve: true,
   );
-  gh.factory<_i14.UserRepository>(() => _i15.UserRepositoryImpl(gh<_i5.Dio>()));
-  gh.singleton<_i16.AppService>(
-      _i17.AppServiceImpl(localStorageService: gh<_i9.LocalStorageService>()));
-  gh.lazySingleton<_i18.AppCubit>(
-      () => _i18.AppCubit(appService: gh<_i16.AppService>()));
+  gh.lazySingleton<_i12.UserRepository>(
+      () => _i13.UserRepositoryImpl(gh<_i5.Dio>()));
+  gh.lazySingleton<_i14.LocalStorageService>(
+      () => _i15.SharedPreferencesService(gh<_i11.SharedPreferences>()));
+  gh.lazySingleton<_i16.AppService>(
+      () => _i17.AppServiceImpl(gh<_i14.LocalStorageService>()));
+  gh.lazySingleton<_i18.AppCubit>(() => _i18.AppCubit(gh<_i16.AppService>()));
   return getIt;
 }
 

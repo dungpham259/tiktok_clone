@@ -31,6 +31,18 @@ class AppLocalizationsVi extends AppLocalizations {
   String get likeCountInfo => 'Thích';
 
   @override
+  String get yourOrders => 'Đơn hàng của bạn';
+
+  @override
+  String get addYours => 'Nối gót';
+
+  @override
+  String get editProfile => 'Sửa hồ sơ';
+
+  @override
+  String get addFriends => 'Thêm bạn';
+
+  @override
   String get noConnectionError => 'Sambungan jaringan lambat atau sedang tidak tersedia. Silakan periksa pengaturan internet anda.';
 
   @override

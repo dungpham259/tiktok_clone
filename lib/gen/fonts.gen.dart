@@ -10,6 +10,9 @@
 class FontFamily {
   FontFamily._();
 
+  /// Font family: Nunito
+  static const String nunito = 'Nunito';
+
   /// Font family: ProximaNova
   static const String proximaNova = 'ProximaNova';
 }

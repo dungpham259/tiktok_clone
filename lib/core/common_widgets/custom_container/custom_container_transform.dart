@@ -1,7 +1,6 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:tiktok/core/constants/constants.dart';
-import 'package:tiktok/core/constants/shortcuts.dart';
 
 class CustomContainerTransform extends StatelessWidget {
   const CustomContainerTransform({
@@ -25,9 +24,9 @@ class CustomContainerTransform extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(
             closedBorderRadius ?? $constants.theme.defaultBorderRadius)),
       ),
-      closedColor: context.getTheme.surface,
-      openColor: context.getTheme.surface,
-      middleColor: context.getTheme.surface,
+      // closedColor: context.theme.surface,
+      // openColor: context.getTheme.surface,
+      // middleColor: context.getTheme.surface,
       tappable: openWidget != null,
       openBuilder: (context, _) => openWidget ?? const SizedBox(),
       closedBuilder: closedBuilder,

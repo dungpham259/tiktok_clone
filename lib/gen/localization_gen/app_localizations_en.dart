@@ -31,6 +31,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get likeCountInfo => 'Likes';
 
   @override
+  String get yourOrders => 'Your orders';
+
+  @override
+  String get addYours => 'Add Yours';
+
+  @override
+  String get editProfile => 'Edit Profile';
+
+  @override
+  String get addFriends => 'Add Friends';
+
+  @override
   String get noConnectionError => 'Slow or no network connection. Please check your internet settings.';
 
   @override

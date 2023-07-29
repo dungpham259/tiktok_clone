@@ -37,9 +37,12 @@ class _AppColor {
   final Color kBackgroundColor2 = Color.fromARGB(255, 174, 222, 236);
   final Color kBlueMain = Color(0xFF65D2E9);
   final Color kRedMain = Color(0xFFE6436D);
-  final Color kWhite = Colors.white;
+  final Color kWhite = Color(0xFFFFFFFF);
   final Color kDarkBlue = Color.fromARGB(255, 0, 107, 137);
   final Color kDarkMain = Color(0xFF161722);
+  final Color kUnselectedItemColor = const Color(0xFF8A8B8F);
+  final Color kTextColor1 = const Color(0xFF86878B);
+  final Color kUnSelectTabBar = const Color(0xFFD7D7D9);
 }
 
 @immutable
@@ -71,8 +74,8 @@ class _Palette {
 @immutable
 class _Theme {
   final tryToGetColorPaletteFromWallpaper = true;
-  final defaultThemeColor = const Color(0xFF161722);
-  final defaultFontFamily = FontFamily.proximaNova;
+  final defaultThemeColor = $constants.appColor.kDarkMain;
+  final defaultFontFamily = FontFamily.nunito;
   final double defaultElevation = 0;
   final double defaultBorderRadius = 24;
 }

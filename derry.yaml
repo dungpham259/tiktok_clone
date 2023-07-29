@@ -7,7 +7,7 @@ build: flutter pub run build_runner build --delete-conflicting-outputs
 # Run whenever start working. It will generate Freezed classes
 watch: flutter pub run build_runner watch --delete-conflicting-outputs
 
-gen_localizations:
+gen_intl:
   - flutter gen-l10n
 
 gen:

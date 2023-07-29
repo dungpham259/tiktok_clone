@@ -48,9 +48,9 @@ class SkeletonLoader extends StatelessWidget {
       final directionn = getDirection(direction);
 
       return Shimmer.fromColors(
-        baseColor: baseColor ?? context.getTheme.primary.withOpacity(0.1),
+        baseColor: baseColor ?? context.theme.primaryColor.withOpacity(0.1),
         highlightColor:
-            highlightColor ?? context.getTheme.primary.withOpacity(0.2),
+            highlightColor ?? context.theme.primaryColor.withOpacity(0.2),
         direction: directionn,
         period: period,
         child: child,

@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:rest_client/rest_client.dart';
 import 'package:tiktok/data/repositories/user/remote/user_reposiory.dart';
 
-@Injectable(as: UserRepository)
+@LazySingleton(as: UserRepository)
 class UserRepositoryImpl implements UserRepository {
   UserRepositoryImpl(
     Dio dio,

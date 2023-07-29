@@ -94,7 +94,7 @@ class AppTypography with _$AppTypography {
           debugLabel: 'appTextTheme titleMedium',
           color: color,
           fontSize: 17,
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w600,
           fontFamily: fontFamily,
           textBaseline: TextBaseline.alphabetic,
           letterSpacing: 0.15,

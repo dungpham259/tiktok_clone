@@ -4,12 +4,10 @@ import 'package:tiktok/core/keys/app_keys.dart';
 import 'package:tiktok/services/app_service/app_service.dart';
 import 'package:tiktok/services/local_storage_service/local_storage_service.dart';
 
-@Singleton(as: AppService)
+@LazySingleton(as: AppService)
 class AppServiceImpl implements AppService {
-  AppServiceImpl({
-    required LocalStorageService localStorageService,
-  }) : _localStorageService = localStorageService;
-  late final LocalStorageService _localStorageService;
+  AppServiceImpl(this._localStorageService);
+  final LocalStorageService _localStorageService;
 
   @override
   bool get isDarkMode =>

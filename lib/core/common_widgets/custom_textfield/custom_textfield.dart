@@ -189,15 +189,15 @@ class _CustomTextFieldState extends State<CustomTextField> {
             ),
             child: StyledText(
               text: '<bold>$currentLength</bold>/$maxLength',
-              style: context.getTextTheme.bodySmall,
+              style: context.textTheme.bodySmall,
               tags: {
                 'bold': StyledTextTag(
-                  style: context.getTextTheme.bodySmall!.apply(
+                  style: context.textTheme.bodySmall!.apply(
                     fontWeightDelta: 1,
                     color: widget.minLength != null &&
                             currentLength < widget.minLength!
                         ? $constants.palette.red.withOpacity(0.5)
-                        : context.getTheme.primary,
+                        : context.theme.primaryColor,
                   ),
                 ),
               },
@@ -286,7 +286,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                               padding: const EdgeInsets.only(left: 8),
                               child: Text(
                                 widget.extraInfo,
-                                style: context.getTextTheme.bodySmall!
+                                style: context.textTheme.bodySmall!
                                     .copyWith(fontStyle: FontStyle.italic),
                               ),
                             ),

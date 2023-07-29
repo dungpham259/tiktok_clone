@@ -10,7 +10,9 @@ class ShopPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Shop'),
+            Text(
+              'Shop',
+            ),
           ],
         ),
       ),

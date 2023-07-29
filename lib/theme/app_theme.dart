@@ -8,9 +8,12 @@ import 'package:tiktok/theme/text/app_typography.dart';
 
 ThemeData getTheme({
   Color? color,
-  Brightness brightness = Brightness.dark,
+  Brightness brightness = Brightness.light,
 }) {
-  final colorScheme = _getColorScheme(color: color, brightness: brightness);
+  final colorScheme = _getColorScheme(
+    color: color,
+    brightness: brightness,
+  );
   // final dynamicColorScheme = await _getDynamicColors(brightness: brightness);
   final appColorScheme = _getAppColorScheme(
     color: color,
