@@ -1,10 +1,12 @@
 import 'dart:async';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 import 'package:tiktok/features/app/views/app.dart';
+import 'package:tiktok/firebase_options.dart';
 import 'package:tiktok/modules/bloc_observer/observer.dart';
 import 'package:tiktok/modules/dependency_injection/di.dart';
 
@@ -20,6 +22,10 @@ Future<void> bootstrap({
   await flavorConfiguration?.call();
 
   await configureDependencies();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   Bloc.observer = AppBlocObserver();
 
