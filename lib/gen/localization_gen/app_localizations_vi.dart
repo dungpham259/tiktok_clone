@@ -43,31 +43,13 @@ class AppLocalizationsVi extends AppLocalizations {
   String get addFriends => 'Thêm bạn';
 
   @override
-  String get noConnectionError => 'Sambungan jaringan lambat atau sedang tidak tersedia. Silakan periksa pengaturan internet anda.';
+  String get creatorTools => 'Công cụ nhà phát triển';
 
   @override
-  String get password => 'Kata sandi';
+  String get myQrCode => 'Mã QR của tôi';
 
   @override
-  String get serverError => 'Terjadi kesalahan server. Silakan coba lagi nanti.';
-
-  @override
-  String get shortPasswordVerificationText => 'Kata sandi harus memiliki minimal 6 karakter';
-
-  @override
-  String get signIn => 'Masuk';
-
-  @override
-  String get signInStatusError => 'Gagal saat mendapatkan status sign in';
-
-  @override
-  String get signOut => 'Keluar';
-
-  @override
-  String get validEmailVerificationText => 'Harap masukkan alamat email yang valid';
-
-  @override
-  String get emptyStringVerificationText => 'Bagian ini tidak boleh kosong';
+  String get settingAndPrivacy => 'Cài đặt và chính sách';
 
   @override
   String pageSettingsInputLanguage(String locale) {

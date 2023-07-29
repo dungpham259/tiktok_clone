@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
-import 'package:tiktok/features/home/views/home.dart';
+import 'package:tiktok/features/home/views/home_screen.dart';
 import 'package:tiktok/features/profile/view/profile_screen.dart';
+import 'package:tiktok/features/settings_privacy/view/setting_privacy_screen.dart';
 
 class AppRouter {
   AppRouter._();
@@ -39,11 +40,11 @@ class AppRouter {
         },
       ),
 
-      // GoRoute(
-      //   name: settingNamed,
-      //   path: settingPath,
-      //   builder: (context, state) => const SettingPage(),
-      // ),
+      GoRoute(
+        name: settingNamed,
+        path: settingPath,
+        builder: (context, state) => const SettingAndPrivacyPage(),
+      ),
       // GoRoute(
       //   name: assetsNamed,
       //   path: assetsPath,

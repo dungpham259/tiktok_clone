@@ -1,5 +1,8 @@
 import 'package:custom_nested_scroll_view/custom_nested_scroll_view.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:tiktok/core/common_widgets/bottom_sheet/app_bottom_sheet_types.dart';
+import 'package:tiktok/core/common_widgets/bottom_sheet/app_bottom_sheet_widget.dart';
 import 'package:tiktok/core/common_widgets/custom_container/avatar.dart';
 import 'package:tiktok/core/common_widgets/text_show/text_show_horizontal.dart';
 import 'package:tiktok/core/constants/app_sizes.dart';
@@ -8,6 +11,7 @@ import 'package:tiktok/core/constants/shortcuts.dart';
 import 'package:tiktok/features/profile/view/widgets/sliver_app_bar.dart';
 import 'package:tiktok/gen/assets.gen.dart';
 import 'package:tiktok/l10n/l10n.dart';
+import 'package:tiktok/router/app_router.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -20,7 +24,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: $constants.appColor.kWhite,
       appBar: _appBar(),
       body: RefreshIndicator(
         onRefresh: () async {
@@ -128,6 +131,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   PreferredSizeWidget _appBar() {
+    final localizations = context.localizations;
     return AppBar(
       leading: const Icon(Icons.monetization_on_sharp),
       backgroundColor: Colors.white, //your color,
@@ -144,9 +148,56 @@ class _ProfileScreenState extends State<ProfileScreen> {
       actions: [
         Assets.icons.png.footstep.image(height: 25),
         gapW16,
-        const Icon(
-          Icons.menu,
-          color: Colors.black,
+        InkWell(
+          onTap: () {
+            AppBottomSheet.show(
+              context,
+              appBottomSheetType: AppBottomSheetType.flexContent,
+              builder: (context) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: Sizes.p20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextShowHorizontal(
+                        content: localizations.creatorTools,
+                        icon: Icon(Icons.person_search_sharp),
+                        textStyle: context.textTheme.titleMedium,
+                      ),
+                      Divider(
+                        thickness: 0,
+                        height: Sizes.p20,
+                        color: $constants.appColor.kTextColor1.withOpacity(0.5),
+                      ),
+                      TextShowHorizontal(
+                        content: localizations.myQrCode,
+                        icon: Icon(Icons.qr_code),
+                        textStyle: context.textTheme.titleMedium,
+                      ),
+                      Divider(
+                        thickness: 0,
+                        height: Sizes.p20,
+                        color: $constants.appColor.kTextColor1.withOpacity(0.5),
+                      ),
+                      TextShowHorizontal(
+                        content: localizations.settingAndPrivacy,
+                        icon: Icon(Icons.settings_applications_sharp),
+                        textStyle: context.textTheme.titleMedium,
+                        onTap: () {
+                          context.pop();
+                          context.push(AppRouter.settingPath);
+                        },
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+          },
+          child: const Icon(
+            Icons.menu,
+            color: Colors.black,
+          ),
         ),
         gapW16,
       ],

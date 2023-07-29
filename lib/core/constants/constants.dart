@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok/features/home/views/widgets/plus_button.dart';
 import 'package:tiktok/features/profile/view/profile_screen.dart';
-import 'package:tiktok/features/shop/view/pages/shop.dart';
+import 'package:tiktok/features/shop/view/shop_screen.dart';
 import 'package:tiktok/gen/assets.gen.dart';
 import 'package:tiktok/gen/fonts.gen.dart';
 import 'package:tiktok/l10n/l10n.dart';
@@ -33,7 +33,7 @@ class _Strings {
 @immutable
 class _AppColor {
   final Color kScaffordColor = Color(0xFFebf0f3);
-  final Color kBackgroundColor = Color(0xFFeeeeee);
+  final Color kBackgroundColor = Color(0xFFf5f5f5);
   final Color kBackgroundColor2 = Color.fromARGB(255, 174, 222, 236);
   final Color kBlueMain = Color(0xFF65D2E9);
   final Color kRedMain = Color(0xFFE6436D);
@@ -42,7 +42,9 @@ class _AppColor {
   final Color kDarkMain = Color(0xFF161722);
   final Color kUnselectedItemColor = const Color(0xFF8A8B8F);
   final Color kTextColor1 = const Color(0xFF86878B);
+  final Color kTextColor2 = const Color(0xFF6c6c6c);
   final Color kUnSelectTabBar = const Color(0xFFD7D7D9);
+  final Color kGreyMain = const Color(0xFFadadad);
 }
 
 @immutable

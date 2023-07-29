@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tiktok/core/constants/constants.dart';
 import 'package:tiktok/core/constants/shortcuts.dart';
-import 'package:tiktok/core/theme/app_themes.dart';
 import 'package:tiktok/features/app/cubit/app_cubit.dart';
 import 'package:tiktok/features/splash/views/splash_page.dart';
 import 'package:tiktok/gen/localization_gen/app_localizations.dart';
@@ -65,7 +64,7 @@ class _App extends StatelessWidget {
       locale: Locale('en'),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      darkTheme: AppThemes.darkTheme,
+      // darkTheme: AppThemes.darkTheme,
       routerConfig: AppRouter.router,
     );
   }

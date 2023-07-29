@@ -43,31 +43,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get addFriends => 'Add Friends';
 
   @override
-  String get noConnectionError => 'Slow or no network connection. Please check your internet settings.';
+  String get creatorTools => 'Creator tools';
 
   @override
-  String get password => 'Password';
+  String get myQrCode => 'My QR code';
 
   @override
-  String get serverError => 'Server error occured. Please try again later.';
-
-  @override
-  String get shortPasswordVerificationText => 'Password must have minimum of 6 characters';
-
-  @override
-  String get signIn => 'Sign In';
-
-  @override
-  String get signInStatusError => 'Failed getting sign in status';
-
-  @override
-  String get signOut => 'Sign Out';
-
-  @override
-  String get validEmailVerificationText => 'Please input a valid email address';
-
-  @override
-  String get emptyStringVerificationText => 'This field cannot be empty';
+  String get settingAndPrivacy => 'Setting and privacy';
 
   @override
   String pageSettingsInputLanguage(String locale) {

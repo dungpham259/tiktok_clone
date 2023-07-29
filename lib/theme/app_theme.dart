@@ -149,6 +149,8 @@ ColorScheme _getColorScheme({
 }) {
   return ColorScheme.fromSeed(
     seedColor: color ?? $constants.theme.defaultThemeColor,
+    primary: $constants.theme.defaultThemeColor,
+    surface: $constants.appColor.kWhite,
     brightness: brightness,
   );
 }

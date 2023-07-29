@@ -7,19 +7,30 @@ class TextShowHorizontal extends StatelessWidget {
     required this.content,
     this.textStyle,
     required this.icon,
+    this.onTap,
+    this.suffixIcon,
   });
   final String content;
   final TextStyle? textStyle;
   final Widget icon;
+  final Widget? suffixIcon;
+  final Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        icon,
-        gapW8,
-        Text(content, style: textStyle),
-      ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          icon,
+          gapW8,
+          Text(content, style: textStyle),
+          if (suffixIcon != null) ...[
+            Spacer(),
+            suffixIcon!,
+          ]
+        ],
+      ),
     );
   }
 }

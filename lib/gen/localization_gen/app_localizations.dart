@@ -165,59 +165,23 @@ abstract class AppLocalizations {
   /// **'Add Friends'**
   String get addFriends;
 
-  /// No description provided for @noConnectionError.
+  /// No description provided for @creatorTools.
   ///
   /// In en, this message translates to:
-  /// **'Slow or no network connection. Please check your internet settings.'**
-  String get noConnectionError;
+  /// **'Creator tools'**
+  String get creatorTools;
 
-  /// No description provided for @password.
+  /// No description provided for @myQrCode.
   ///
   /// In en, this message translates to:
-  /// **'Password'**
-  String get password;
+  /// **'My QR code'**
+  String get myQrCode;
 
-  /// No description provided for @serverError.
+  /// No description provided for @settingAndPrivacy.
   ///
   /// In en, this message translates to:
-  /// **'Server error occured. Please try again later.'**
-  String get serverError;
-
-  /// No description provided for @shortPasswordVerificationText.
-  ///
-  /// In en, this message translates to:
-  /// **'Password must have minimum of 6 characters'**
-  String get shortPasswordVerificationText;
-
-  /// No description provided for @signIn.
-  ///
-  /// In en, this message translates to:
-  /// **'Sign In'**
-  String get signIn;
-
-  /// No description provided for @signInStatusError.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed getting sign in status'**
-  String get signInStatusError;
-
-  /// No description provided for @signOut.
-  ///
-  /// In en, this message translates to:
-  /// **'Sign Out'**
-  String get signOut;
-
-  /// No description provided for @validEmailVerificationText.
-  ///
-  /// In en, this message translates to:
-  /// **'Please input a valid email address'**
-  String get validEmailVerificationText;
-
-  /// No description provided for @emptyStringVerificationText.
-  ///
-  /// In en, this message translates to:
-  /// **'This field cannot be empty'**
-  String get emptyStringVerificationText;
+  /// **'Setting and privacy'**
+  String get settingAndPrivacy;
 
   /// No description provided for @pageSettingsInputLanguage.
   ///
