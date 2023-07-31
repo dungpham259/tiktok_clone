@@ -160,9 +160,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TextShowHorizontal(
-                        content: localizations.creatorTools,
+                        label: localizations.creatorTools,
                         icon: Icon(Icons.person_search_sharp),
-                        textStyle: context.textTheme.titleMedium,
+                        textStyleLabel: context.textTheme.titleMedium,
                       ),
                       Divider(
                         thickness: 0,
@@ -170,9 +170,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         color: $constants.appColor.kTextColor1.withOpacity(0.5),
                       ),
                       TextShowHorizontal(
-                        content: localizations.myQrCode,
+                        label: localizations.myQrCode,
                         icon: Icon(Icons.qr_code),
-                        textStyle: context.textTheme.titleMedium,
+                        textStyleLabel: context.textTheme.titleMedium,
                       ),
                       Divider(
                         thickness: 0,
@@ -180,9 +180,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         color: $constants.appColor.kTextColor1.withOpacity(0.5),
                       ),
                       TextShowHorizontal(
-                        content: localizations.settingAndPrivacy,
+                        label: localizations.settingAndPrivacy,
                         icon: Icon(Icons.settings_applications_sharp),
-                        textStyle: context.textTheme.titleMedium,
+                        textStyleLabel: context.textTheme.titleMedium,
                         onTap: () {
                           context.pop();
                           context.push(AppRouter.settingPath);
@@ -342,8 +342,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
       mainAxisSize: MainAxisSize.min,
       children: [
         TextShowHorizontal(
-          content: localizations.yourOrders,
-          textStyle: context.textTheme.titleMedium!.copyWith(
+          label: localizations.yourOrders,
+          textStyleLabel: context.textTheme.titleMedium!.copyWith(
             fontSize: 15,
           ),
           icon: Icon(
@@ -359,8 +359,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ),
         TextShowHorizontal(
-          content: localizations.addYours,
-          textStyle: context.textTheme.titleMedium!.copyWith(
+          label: localizations.addYours,
+          textStyleLabel: context.textTheme.titleMedium!.copyWith(
             fontSize: 15,
           ),
           icon: Icon(

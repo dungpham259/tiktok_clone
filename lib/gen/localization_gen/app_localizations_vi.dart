@@ -49,6 +49,15 @@ class AppLocalizationsVi extends AppLocalizations {
   String get myQrCode => 'Mã QR của tôi';
 
   @override
+  String get appLanguage => 'Ngôn ngữ ứng dụng';
+
+  @override
+  String get cancel => 'Hủy';
+
+  @override
+  String get done => 'Xong';
+
+  @override
   String get settingAndPrivacy => 'Cài đặt và chính sách';
 
   @override

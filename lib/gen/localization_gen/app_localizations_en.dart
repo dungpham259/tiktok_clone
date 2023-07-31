@@ -49,6 +49,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get myQrCode => 'My QR code';
 
   @override
+  String get appLanguage => 'App language';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get done => 'Done';
+
+  @override
   String get settingAndPrivacy => 'Setting and privacy';
 
   @override

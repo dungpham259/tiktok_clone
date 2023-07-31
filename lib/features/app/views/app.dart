@@ -50,9 +50,9 @@ class _App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final String locale = context.select(
-    //   (AppBloc value) => value.state.locale,
-    // );
+    final String locale = context.select(
+      (AppCubit value) => value.state.locale,
+    );
 
     // final bool isDarkMode = context.select(
     //   (AppBloc value) => value.state.isDarkMode,
@@ -61,7 +61,7 @@ class _App extends StatelessWidget {
     return MaterialApp.router(
       title: $constants.strings.appName,
       theme: context.theme,
-      locale: Locale('en'),
+      locale: Locale(locale),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       // darkTheme: AppThemes.darkTheme,

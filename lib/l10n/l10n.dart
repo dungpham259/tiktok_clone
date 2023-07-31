@@ -5,4 +5,5 @@ export 'package:tiktok/gen/localization_gen/app_localizations.dart';
 
 extension AppLocalizationsX on BuildContext {
   AppLocalizations get localizations => AppLocalizations.of(this);
+  List<Locale> get supportedLocales => AppLocalizations.supportedLocales;
 }

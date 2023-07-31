@@ -1,7 +1,9 @@
 import 'package:go_router/go_router.dart';
 import 'package:tiktok/features/home/views/home_screen.dart';
 import 'package:tiktok/features/profile/view/profile_screen.dart';
-import 'package:tiktok/features/settings_privacy/view/setting_privacy_screen.dart';
+import 'package:tiktok/features/settings_privacy/view/pages/language_setting/app_language_screen.dart';
+import 'package:tiktok/features/settings_privacy/view/pages/language_setting/language_setting_screen.dart';
+import 'package:tiktok/features/settings_privacy/view/pages/setting_privacy_screen.dart';
 
 class AppRouter {
   AppRouter._();
@@ -15,11 +17,11 @@ class AppRouter {
   static const String settingNamed = 'setting';
   static const String settingPath = '/setting';
 
-  static const String assetsNamed = 'assets';
-  static const String assetsPath = '/assets';
+  static const String languageNamed = 'language';
+  static const String languagePath = '/language';
 
-  static const String dogImageRandomNamed = 'dogImageRandom';
-  static const String dogImageRandomPath = '/dogImageRandom';
+  static const String appLanguageNamed = 'appLanguage';
+  static const String appLanguagePath = '/appLanguage';
 
   static const String imagesFromDbNamed = 'imagesFromDb';
   static const String imagesFromDbPath = '/imagesFromDb';
@@ -45,11 +47,16 @@ class AppRouter {
         path: settingPath,
         builder: (context, state) => const SettingAndPrivacyPage(),
       ),
-      // GoRoute(
-      //   name: assetsNamed,
-      //   path: assetsPath,
-      //   builder: (context, state) => const AssetsPage(),
-      // ),
+      GoRoute(
+        name: languageNamed,
+        path: languagePath,
+        builder: (context, state) => const LanguageScreen(),
+      ),
+      GoRoute(
+        name: appLanguageNamed,
+        path: appLanguagePath,
+        builder: (context, state) => const AppLanguageScreen(),
+      ),
       // GoRoute(
       //   name: dogImageRandomNamed,
       //   path: dogImageRandomPath,

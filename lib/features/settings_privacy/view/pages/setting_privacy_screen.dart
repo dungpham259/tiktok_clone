@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tiktok/core/constants/app_sizes.dart';
 import 'package:tiktok/core/constants/constants.dart';
 import 'package:tiktok/core/constants/shortcuts.dart';
 import 'package:tiktok/features/settings_privacy/view/widgets/container_setting.dart';
+import 'package:tiktok/features/settings_privacy/view/widgets/scaffold_settings_screen.dart';
+import 'package:tiktok/router/app_router.dart';
 
 class SettingAndPrivacyPage extends StatefulWidget {
   const SettingAndPrivacyPage({super.key});
@@ -30,16 +33,8 @@ class _SettingAndPrivacyPageState extends State<SettingAndPrivacyPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: $constants.appColor.kBackgroundColor,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: _scrollPosition > 42 ? Text('Settings and privacy') : null,
-        // scrolledUnderElevation: 0.0,
-        surfaceTintColor: Colors.transparent,
-        backgroundColor: $constants.appColor.kBackgroundColor,
-        leading: BackButton(),
-      ),
+    return ScaffoldSettingScreen(
+      title: _scrollPosition > 42 ? 'Settings and privacy' : null,
       body: SingleChildScrollView(
         controller: _scrollController,
         child: SafeArea(
@@ -88,32 +83,32 @@ class _SettingAndPrivacyPageState extends State<SettingAndPrivacyPage> {
       title: 'Account',
       widget: [
         OptionSettings(
-          title: 'Account',
+          label: 'Account',
           icon: Icons.person,
         ),
         gapH32,
         OptionSettings(
-          title: 'Privacy',
+          label: 'Privacy',
           icon: Icons.lock,
         ),
         gapH32,
         OptionSettings(
-          title: 'Security',
+          label: 'Security',
           icon: Icons.shield,
         ),
         gapH32,
         OptionSettings(
-          title: 'Your orders',
+          label: 'Your orders',
           icon: Icons.shopping_cart,
         ),
         gapH32,
         OptionSettings(
-          title: 'Balance',
+          label: 'Balance',
           icon: Icons.credit_card,
         ),
         gapH32,
         OptionSettings(
-          title: 'Share profile',
+          label: 'Share profile',
           icon: Icons.share,
         ),
       ],
@@ -125,53 +120,55 @@ class _SettingAndPrivacyPageState extends State<SettingAndPrivacyPage> {
       title: 'Content & Display',
       widget: [
         OptionSettings(
-          title: 'Notifications',
+          label: 'Notifications',
           icon: Icons.notifications,
         ),
         gapH32,
         OptionSettings(
-          title: 'LIVE',
+          label: 'LIVE',
           icon: Icons.live_tv_sharp,
         ),
         gapH32,
         OptionSettings(
-          title: 'Comment and watch history',
+          label: 'Comment and watch history',
           icon: Icons.watch_later,
         ),
         gapH32,
         OptionSettings(
-          title: 'Content preferences',
+          label: 'Content preferences',
           icon: Icons.camera_indoor_outlined,
         ),
         gapH32,
         OptionSettings(
-          title: 'Ads',
+          label: 'Ads',
           icon: Icons.ads_click_sharp,
         ),
         gapH32,
         OptionSettings(
-          title: 'Playback',
+          label: 'Playback',
           icon: Icons.play_circle_fill_outlined,
         ),
         gapH32,
         OptionSettings(
-          title: 'Language',
+          label: 'Language',
           icon: Icons.language,
-          onTap: () {},
+          onTap: () {
+            context.push(AppRouter.languagePath);
+          },
         ),
         gapH32,
         OptionSettings(
-          title: 'Screen time',
+          label: 'Screen time',
           icon: Icons.screenshot_sharp,
         ),
         gapH32,
         OptionSettings(
-          title: 'Family Pairing',
+          label: 'Family Pairing',
           icon: Icons.home,
         ),
         gapH32,
         OptionSettings(
-          title: 'Accessiblity',
+          label: 'Accessiblity',
           icon: Icons.accessibility,
         ),
       ],
@@ -183,17 +180,17 @@ class _SettingAndPrivacyPageState extends State<SettingAndPrivacyPage> {
       title: 'Cache & Cellular',
       widget: [
         OptionSettings(
-          title: 'Free up space',
+          label: 'Free up space',
           icon: Icons.delete,
         ),
         gapH32,
         OptionSettings(
-          title: 'Data Saver',
+          label: 'Data Saver',
           icon: Icons.data_exploration_rounded,
         ),
         gapH32,
         OptionSettings(
-          title: 'Wallpaper',
+          label: 'Wallpaper',
           icon: Icons.wallpaper,
         ),
       ],
@@ -205,12 +202,12 @@ class _SettingAndPrivacyPageState extends State<SettingAndPrivacyPage> {
       title: 'Login',
       widget: [
         OptionSettings(
-          title: 'Switch account',
+          label: 'Switch account',
           icon: Icons.change_circle_sharp,
         ),
         gapH32,
         OptionSettings(
-          title: 'Log out',
+          label: 'Log out',
           icon: Icons.logout,
         ),
       ],

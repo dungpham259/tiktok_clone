@@ -177,6 +177,24 @@ abstract class AppLocalizations {
   /// **'My QR code'**
   String get myQrCode;
 
+  /// No description provided for @appLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'App language'**
+  String get appLanguage;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @done.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get done;
+
   /// No description provided for @settingAndPrivacy.
   ///
   /// In en, this message translates to:

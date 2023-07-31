@@ -35,14 +35,12 @@ class AppCubit extends Cubit<AppState> {
   FutureOr<void> onLocaleChanged({
     required String locale,
   }) async {
-    if (state.locale != locale) {
-      await _appService.setLocale(locale: locale);
+    await _appService.setLocale(locale: locale);
 
-      emit(
-        state.copyWith(
-          locale: locale,
-        ),
-      );
-    }
+    emit(
+      state.copyWith(
+        locale: locale,
+      ),
+    );
   }
 }

@@ -56,26 +56,54 @@ class OptionSettings extends StatelessWidget {
   const OptionSettings({
     super.key,
     this.onTap,
-    required this.title,
-    required this.icon,
+    required this.label,
+    this.icon,
+    this.sublabel,
+    this.selectOption,
+    this.suffixIcon,
   });
   final Function()? onTap;
-  final String title;
-  final IconData icon;
+  final String label;
+  final String? sublabel;
+  final String? selectOption;
+  final IconData? icon;
+  final Widget? suffixIcon;
   @override
   Widget build(BuildContext context) {
     return TextShowHorizontal(
-      content: title,
-      icon: Icon(
-        icon,
-        color: $constants.appColor.kGreyMain,
+      label: label,
+      textStyleLabel: context.textTheme.titleSmall!.copyWith(
+        fontWeight: FontWeight.w600,
+        fontSize: 16,
       ),
-      suffixIcon: Icon(
-        Icons.arrow_forward_ios,
-        color: $constants.appColor.kGreyMain,
-        size: 12,
-      ),
-      onTap: () {},
+      icon: icon != null
+          ? Icon(
+              icon,
+              color: $constants.appColor.kGreyMain,
+            )
+          : null,
+      subLabel: sublabel,
+      suffixIcon: suffixIcon ??
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (selectOption != null) ...[
+                Text(
+                  selectOption!,
+                  style: context.textTheme.bodyMedium!.copyWith(
+                    color: $constants.appColor.kTextColor2,
+                  ),
+                ),
+              ],
+              gapW8,
+              Icon(
+                Icons.arrow_forward_ios,
+                color: $constants.appColor.kGreyMain,
+                size: 12,
+              ),
+            ],
+          ),
+      onTap: onTap,
     );
   }
 }
