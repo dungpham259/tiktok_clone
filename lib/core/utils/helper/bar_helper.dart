@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:tiktok/core/common_widgets/bar/bar.dart';
-import 'package:tiktok/features/app/model/alert_model.dart';
+import 'package:tiktok/features/app/models/alert_model.dart';
 
 @immutable
 abstract class BarHelper {

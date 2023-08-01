@@ -9,33 +9,34 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:dio/dio.dart' as _i5;
-import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i6;
+import 'package:dio/dio.dart' as _i6;
+import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i7;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart'
-    as _i8;
-import 'package:shared_preferences/shared_preferences.dart' as _i11;
+    as _i9;
+import 'package:shared_preferences/shared_preferences.dart' as _i12;
 
-import '../../data/repositories/user/remote/user_reposiory.dart' as _i12;
-import '../../data/repositories/user/remote/user_repository_impl.dart' as _i13;
-import '../../features/app/cubit/app_cubit.dart' as _i18;
-import '../../features/home/cubit/home_cubit.dart' as _i7;
-import '../../services/app_service/app_service.dart' as _i16;
-import '../../services/app_service/app_service_impl.dart' as _i17;
-import '../../services/crashlytics_service/crashlytics_service.dart' as _i3;
+import '../../data/repositories/user/remote/user_reposiory.dart' as _i13;
+import '../../data/repositories/user/remote/user_repository_impl.dart' as _i14;
+import '../../features/app/cubit/app_cubit.dart' as _i19;
+import '../../features/auth/cubit/auth_cubit.dart' as _i3;
+import '../../features/home/cubit/home_cubit.dart' as _i8;
+import '../../services/app_service/app_service.dart' as _i17;
+import '../../services/app_service/app_service_impl.dart' as _i18;
+import '../../services/crashlytics_service/crashlytics_service.dart' as _i4;
 import '../../services/crashlytics_service/firebase_crashlytics_service.dart'
-    as _i4;
+    as _i5;
 import '../../services/local_storage_service/local_storage_service.dart'
-    as _i14;
-import '../../services/local_storage_service/shared_preferences_service.dart'
     as _i15;
-import '../../services/log_service/debug_log_service.dart' as _i10;
-import '../../services/log_service/log_service.dart' as _i9;
-import 'dio_client_di.dart' as _i19;
-import 'network_info_di.dart' as _i21;
-import 'secure_storage_di.dart' as _i20;
-import 'sharedPreferences_di.dart' as _i22;
+import '../../services/local_storage_service/shared_preferences_service.dart'
+    as _i16;
+import '../../services/log_service/debug_log_service.dart' as _i11;
+import '../../services/log_service/log_service.dart' as _i10;
+import 'dio_client_di.dart' as _i21;
+import 'network_info_di.dart' as _i23;
+import 'secure_storage_di.dart' as _i22;
+import 'sharedPreferences_di.dart' as _i20;
 
 // ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars
@@ -54,30 +55,31 @@ Future<_i1.GetIt> init(
   final secureStorageInjection = _$SecureStorageInjection();
   final networkInfoInjection = _$NetworkInfoInjection();
   final sharedPreferenceModule = _$SharedPreferenceModule();
-  gh.singleton<_i3.CrashlyticsService>(_i4.FirebaseCrashlyticsService());
-  gh.singleton<_i5.Dio>(dioInjection.dio());
-  gh.factory<_i6.FlutterSecureStorage>(() => secureStorageInjection.storage());
-  gh.lazySingleton<_i7.HomeCubit>(() => _i7.HomeCubit());
-  gh.factory<_i8.InternetConnection>(() => networkInfoInjection.networkInfo);
-  gh.singleton<_i9.LogService>(_i10.DebugLogService());
-  await gh.singletonAsync<_i11.SharedPreferences>(
+  gh.lazySingleton<_i3.AuthCubit>(() => _i3.AuthCubit());
+  gh.singleton<_i4.CrashlyticsService>(_i5.FirebaseCrashlyticsService());
+  gh.singleton<_i6.Dio>(dioInjection.dio());
+  gh.factory<_i7.FlutterSecureStorage>(() => secureStorageInjection.storage());
+  gh.lazySingleton<_i8.HomeCubit>(() => _i8.HomeCubit());
+  gh.factory<_i9.InternetConnection>(() => networkInfoInjection.networkInfo);
+  gh.singleton<_i10.LogService>(_i11.DebugLogService());
+  await gh.singletonAsync<_i12.SharedPreferences>(
     () => sharedPreferenceModule.prefs,
     preResolve: true,
   );
-  gh.lazySingleton<_i12.UserRepository>(
-      () => _i13.UserRepositoryImpl(gh<_i5.Dio>()));
-  gh.lazySingleton<_i14.LocalStorageService>(
-      () => _i15.SharedPreferencesService(gh<_i11.SharedPreferences>()));
-  gh.lazySingleton<_i16.AppService>(
-      () => _i17.AppServiceImpl(gh<_i14.LocalStorageService>()));
-  gh.lazySingleton<_i18.AppCubit>(() => _i18.AppCubit(gh<_i16.AppService>()));
+  gh.lazySingleton<_i13.UserRepository>(
+      () => _i14.UserRepositoryImpl(gh<_i6.Dio>()));
+  gh.lazySingleton<_i15.LocalStorageService>(
+      () => _i16.SharedPreferencesService(gh<_i12.SharedPreferences>()));
+  gh.lazySingleton<_i17.AppService>(
+      () => _i18.AppServiceImpl(gh<_i15.LocalStorageService>()));
+  gh.lazySingleton<_i19.AppCubit>(() => _i19.AppCubit(gh<_i17.AppService>()));
   return getIt;
 }
 
-class _$DioInjection extends _i19.DioInjection {}
+class _$SharedPreferenceModule extends _i20.SharedPreferenceModule {}
 
-class _$SecureStorageInjection extends _i20.SecureStorageInjection {}
+class _$DioInjection extends _i21.DioInjection {}
 
-class _$NetworkInfoInjection extends _i21.NetworkInfoInjection {}
+class _$SecureStorageInjection extends _i22.SecureStorageInjection {}
 
-class _$SharedPreferenceModule extends _i22.SharedPreferenceModule {}
+class _$NetworkInfoInjection extends _i23.NetworkInfoInjection {}

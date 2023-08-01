@@ -73,6 +73,8 @@ dependencies:
   pull_to_refresh: ^2.0.0
   firebase_storage: ^11.2.5
   firebase_core: ^2.15.0
+  firebase_auth: ^4.7.2
+  json_annotation: ^4.8.1
 
 dev_dependencies:
   flutter_test:
@@ -83,6 +85,7 @@ dev_dependencies:
   flutter_gen_runner: ^5.3.1
   flutter_gen: ^5.3.1
   injectable_generator: ^2.1.6
+  json_serializable: ^6.7.1
 
 # output assets generation
 scripts: derry.yaml
