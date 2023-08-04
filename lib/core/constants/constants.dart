@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok/features/dashborad/dashboard_screen.dart';
 import 'package:tiktok/features/home/views/widgets/plus_button.dart';
 import 'package:tiktok/features/profile/view/profile_screen.dart';
 import 'package:tiktok/features/shop/view/shop_screen.dart';
@@ -85,7 +86,7 @@ class _Theme {
 @immutable
 class _Navigation {
   List<Widget> bottomNavigationScreens() => const [
-        ProfileScreen(),
+        DashboardScreen(),
         ShopPage(),
         SizedBox.shrink(),
         ProfileScreen(),
