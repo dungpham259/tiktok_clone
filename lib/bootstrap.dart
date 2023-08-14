@@ -9,28 +9,28 @@ import 'package:tiktok/features/app/views/app.dart';
 import 'package:tiktok/firebase_options.dart';
 import 'package:tiktok/modules/bloc_observer/observer.dart';
 import 'package:tiktok/modules/dependency_injection/di.dart';
+import 'package:tiktok/services/crashlytics_service/crashlytics_service.dart';
 
 Future<void> bootstrap({
-  AsyncCallback? firebaseInitialization,
   AsyncCallback? flavorConfiguration,
 }) async {
-  //await runZonedGuarded(() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  await runZonedGuarded(() async {
+    WidgetsFlutterBinding.ensureInitialized();
 
-  await firebaseInitialization?.call();
-  Logger.level = Level.verbose;
-  await flavorConfiguration?.call();
+    Logger.level = Level.verbose;
+    await flavorConfiguration?.call();
 
-  await configureDependencies();
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    await configureDependencies();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+    getIt<CrashlyticsService>().init();
 
-  Bloc.observer = AppBlocObserver();
+    Bloc.observer = AppBlocObserver();
 
-  runApp(const App());
-  // }, (error, stack) {
-  //   getIt<CrashlyticsService>().recordException(error, stack);
-  // });
+    runApp(const App());
+  }, (error, stack) {
+    getIt<CrashlyticsService>().recordException(error, stack);
+  });
 }

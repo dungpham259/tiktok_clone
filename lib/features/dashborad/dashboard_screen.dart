@@ -6,15 +6,12 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PageView(
+    return PageView.builder(
+      itemCount: 5,
       scrollDirection: Axis.vertical,
-      children: [
-        VideoPlayerScreen(),
-        VideoPlayerScreen(),
-        VideoPlayerScreen(),
-        VideoPlayerScreen(),
-        VideoPlayerScreen(),
-      ],
+      itemBuilder: (context, index) {
+        return VideoPlayerScreen();
+      },
     );
   }
 }

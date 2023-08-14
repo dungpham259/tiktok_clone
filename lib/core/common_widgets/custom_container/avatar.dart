@@ -17,11 +17,18 @@ class Avatar extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: _borderDecoration(),
-      child: CircleAvatar(
-        radius: radius,
-        backgroundColor: Colors.black12,
-        backgroundImage: photoUrl != null ? NetworkImage(photoUrl!) : null,
-        child: photoUrl == null ? Icon(Icons.camera_alt, size: radius) : null,
+      child: Padding(
+        padding: const EdgeInsets.all(1),
+        child: CircleAvatar(
+          radius: radius,
+          backgroundColor: Colors.black12,
+          backgroundImage: photoUrl != null
+              ? NetworkImage(
+                  photoUrl!,
+                )
+              : null,
+          child: photoUrl == null ? Icon(Icons.camera_alt, size: radius) : null,
+        ),
       ),
     );
   }

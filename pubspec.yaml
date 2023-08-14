@@ -76,6 +76,7 @@ dependencies:
   firebase_auth: ^4.7.2
   json_annotation: ^4.8.1
   video_player: ^2.7.0
+  firebase_crashlytics: ^3.3.4
 
 dev_dependencies:
   flutter_test:

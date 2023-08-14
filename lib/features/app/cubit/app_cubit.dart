@@ -43,4 +43,8 @@ class AppCubit extends Cubit<AppState> {
       ),
     );
   }
+
+  void increace() {
+    emit(state.copyWith(num: state.num + 1));
+  }
 }

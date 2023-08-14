@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AppState {
   UIStatus get status => throw _privateConstructorUsedError;
   String get locale => throw _privateConstructorUsedError;
+  int get num => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
@@ -29,7 +30,7 @@ abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res, AppState>;
   @useResult
-  $Res call({UIStatus status, String locale});
+  $Res call({UIStatus status, String locale, int num});
 
   $UIStatusCopyWith<$Res> get status;
 }
@@ -49,6 +50,7 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
   $Res call({
     Object? status = null,
     Object? locale = null,
+    Object? num = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -59,6 +61,10 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as String,
+      num: null == num
+          ? _value.num
+          : num // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -78,7 +84,7 @@ abstract class _$$_AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
       __$$_AppStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UIStatus status, String locale});
+  $Res call({UIStatus status, String locale, int num});
 
   @override
   $UIStatusCopyWith<$Res> get status;
@@ -97,6 +103,7 @@ class __$$_AppStateCopyWithImpl<$Res>
   $Res call({
     Object? status = null,
     Object? locale = null,
+    Object? num = null,
   }) {
     return _then(_$_AppState(
       status: null == status
@@ -107,6 +114,10 @@ class __$$_AppStateCopyWithImpl<$Res>
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as String,
+      num: null == num
+          ? _value.num
+          : num // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -115,7 +126,9 @@ class __$$_AppStateCopyWithImpl<$Res>
 
 class _$_AppState implements _AppState {
   const _$_AppState(
-      {this.status = const UIInitial(), this.locale = AppConfig.defaultLocale});
+      {this.status = const UIInitial(),
+      this.locale = AppConfig.defaultLocale,
+      this.num = 0});
 
   @override
   @JsonKey()
@@ -123,10 +136,13 @@ class _$_AppState implements _AppState {
   @override
   @JsonKey()
   final String locale;
+  @override
+  @JsonKey()
+  final int num;
 
   @override
   String toString() {
-    return 'AppState(status: $status, locale: $locale)';
+    return 'AppState(status: $status, locale: $locale, num: $num)';
   }
 
   @override
@@ -135,11 +151,12 @@ class _$_AppState implements _AppState {
         (other.runtimeType == runtimeType &&
             other is _$_AppState &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.locale, locale) || other.locale == locale));
+            (identical(other.locale, locale) || other.locale == locale) &&
+            (identical(other.num, num) || other.num == num));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, locale);
+  int get hashCode => Object.hash(runtimeType, status, locale, num);
 
   @JsonKey(ignore: true)
   @override
@@ -149,13 +166,17 @@ class _$_AppState implements _AppState {
 }
 
 abstract class _AppState implements AppState {
-  const factory _AppState({final UIStatus status, final String locale}) =
-      _$_AppState;
+  const factory _AppState(
+      {final UIStatus status,
+      final String locale,
+      final int num}) = _$_AppState;
 
   @override
   UIStatus get status;
   @override
   String get locale;
+  @override
+  int get num;
   @override
   @JsonKey(ignore: true)
   _$$_AppStateCopyWith<_$_AppState> get copyWith =>

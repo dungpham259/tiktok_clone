@@ -34,12 +34,16 @@ class $AssetsIconsGen {
 class $AssetsIconsPngGen {
   const $AssetsIconsPngGen();
 
+  /// File path: assets/icons/png/Heart Icon.png
+  AssetGenImage get heartIcon =>
+      const AssetGenImage('assets/icons/png/Heart Icon.png');
+
   /// File path: assets/icons/png/footstep.png
   AssetGenImage get footstep =>
       const AssetGenImage('assets/icons/png/footstep.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [footstep];
+  List<AssetGenImage> get values => [heartIcon, footstep];
 }
 
 class $AssetsIconsSvgGen {
