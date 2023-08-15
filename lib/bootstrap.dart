@@ -25,7 +25,9 @@ Future<void> bootstrap({
     );
     await configureDependencies();
 
-    getIt<CrashlyticsService>().init();
+    getIt<CrashlyticsService>().init(
+      allowedTracking: false,
+    );
 
     Bloc.observer = AppBlocObserver();
 

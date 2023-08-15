@@ -28,7 +28,7 @@ class Bar<T> extends StatefulWidget {
     this.maxWidth,
     this.maxHeight,
     this.margin = EdgeInsets.zero,
-    this.padding = const EdgeInsets.all(16),
+    this.padding = const EdgeInsets.all(14),
     this.borderRadius,
     this.textDirection = TextDirection.ltr,
     this.borderColor,
@@ -532,7 +532,6 @@ class _BarState<K extends Object?> extends State<Bar<K>>
         _buildLeftBarIndicator(),
         Expanded(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               if (_isTitlePresent) ...{
@@ -548,12 +547,7 @@ class _BarState<K extends Object?> extends State<Bar<K>>
                 _emptyWidget,
               },
               Padding(
-                padding: EdgeInsets.only(
-                  top: _messageTopMargin,
-                  left: widget.padding.left,
-                  right: widget.padding.right,
-                  bottom: widget.padding.bottom,
-                ),
+                padding: widget.padding,
                 child: widget.messageText ?? _getDefaultNotificationText(),
               ),
             ],

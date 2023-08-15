@@ -130,3 +130,5 @@ android/app/release/
 
 # don't check in golden failure output
 **/failures/*.png
+
+.fvm/flutter_sdk

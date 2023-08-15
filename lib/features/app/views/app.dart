@@ -3,34 +3,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tiktok/core/constants/constants.dart';
 import 'package:tiktok/core/constants/shortcuts.dart';
 import 'package:tiktok/features/app/cubit/app_cubit.dart';
+import 'package:tiktok/features/app/views/app_provider.dart';
 import 'package:tiktok/features/splash/views/splash_page.dart';
 import 'package:tiktok/gen/localization_gen/app_localizations.dart';
 import 'package:tiktok/modules/bloc_observer/ui_status.dart';
-import 'package:tiktok/modules/dependency_injection/di.dart';
 import 'package:tiktok/router/app_router.dart';
 
-class App extends StatefulWidget {
+class App extends StatelessWidget {
   const App({super.key});
 
   @override
-  State<App> createState() => _AppState();
-}
-
-class _AppState extends State<App> {
-  late AppCubit _appBloc;
-  @override
-  void initState() {
-    _appBloc = getIt<AppCubit>();
-    _appBloc.initialApp();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => _appBloc,
+    return AppProvider(
       child: BlocSelector<AppCubit, AppState, UIStatus>(
-        bloc: _appBloc,
         selector: (state) => state.status,
         builder: (context, appStatus) {
           return appStatus.when(

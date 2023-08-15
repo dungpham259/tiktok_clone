@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:tiktok/core/common_widgets/bar/bar.dart';
+import 'package:tiktok/core/constants/constants.dart';
 import 'package:tiktok/features/app/models/alert_model.dart';
 
 @immutable
@@ -46,26 +47,12 @@ abstract class BarHelper {
       );
     } else if (alert.type == AlertType.notification) {
       bar = _createAlertModal(
-        message: message,
-        color: Colors.grey,
-        iconWidget: Container(
-          height: 24,
-          width: 24,
-          decoration: const BoxDecoration(
-            color: Colors.red,
-            shape: BoxShape.circle,
-            border: Border.fromBorderSide(
-                BorderSide(color: Colors.white, width: 2)),
-          ),
-          margin: const EdgeInsets.all(4),
-        ),
-      );
+          message: message, color: $constants.appColor.kGreyMain);
     } else if (alert.type == AlertType.quiet) {
       return;
     } else {
       bar = _createAlertModal(
         message: message,
-        iconWidget: const SizedBox(),
         color: Colors.red,
       );
     }
@@ -84,21 +71,17 @@ abstract class BarHelper {
 
   static Bar<void> _createAlertModal({
     required String message,
-    required Widget iconWidget,
+    Widget? iconWidget,
     required Color color,
     String? title,
     bool isTest = false,
-    Duration duration = const Duration(seconds: 3),
+    Duration duration = const Duration(seconds: 2),
   }) {
     return Bar<void>(
       title: title,
       message: message,
       barPosition: BarPosition.top,
-      icon: Padding(
-        padding: const EdgeInsets.all(8),
-        child: iconWidget,
-      ),
-      maxHeight: 60,
+      maxHeight: 40,
       backgroundColor: color,
       messageSize: 18,
       borderRadius: const BorderRadius.all(Radius.circular(16)),
@@ -108,7 +91,7 @@ abstract class BarHelper {
       duration: isTest ? const Duration(seconds: 1) : duration,
       animationDuration: isTest
           ? const Duration(milliseconds: 250)
-          : const Duration(seconds: 1),
+          : const Duration(milliseconds: 250),
     );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tiktok/core/utils/helper/bar_helper.dart';
 import 'package:tiktok/features/app/cubit/app_cubit.dart';
+import 'package:tiktok/features/app/models/alert_model.dart';
 
 class ShopPage extends StatelessWidget {
   const ShopPage({super.key});
@@ -22,11 +24,17 @@ class ShopPage extends StatelessWidget {
                 ABC(),
                 ElevatedButton(
                     onPressed: () {
-                      context.read<AppCubit>().increace();
+                      context.read<AppCubit>().increase();
                     },
                     child: Icon(Icons.add)),
                 TextButton(
-                  onPressed: () => throw Exception(),
+                  onPressed: () => BarHelper.showAlert(
+                    context,
+                    alert: AlertModel(
+                      message: 'fdfdfdf',
+                      type: AlertType.notification,
+                    ),
+                  ),
                   child: const Text("Throw Test Exception"),
                 ),
               ],
