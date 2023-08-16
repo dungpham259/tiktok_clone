@@ -82,7 +82,7 @@ workflows:
       #   track: internal
       #   in_app_update_priority: 0
       firebase:
-        firebase_token: $ANDROID_FIREBASE_SECRET
+        firebase_service_account: $FIREBASE_SERVICE_ACCOUNT
         android:
           app_id: 1:363317058184:android:f88cf6592717cb8ef19d3d
           groups:
