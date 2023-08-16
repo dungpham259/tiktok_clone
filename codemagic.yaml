@@ -38,9 +38,20 @@ workflows:
       - name: Generate language files
         script: |
           flutter gen-l10n
-      - name: Generate other files
+      - name: Generate main package
         script: |
           flutter pub run build_runner build -d
+      - name: Generate rest_client
+        script: |
+          cd packages/rest_client
+          flutter pub get
+          flutter pub run build_runner build -d
+          cd -
+          cd app_core
+          flutter pub get
+          flutter pub run build_runner build -d
+          cd ..
+          cd ..
       # - name: Flutter unit tests
       #   script: |
       #     flutter test
