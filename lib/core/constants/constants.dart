@@ -42,10 +42,10 @@ class _AppColor {
   final Color kDarkBlue = Color.fromARGB(255, 0, 107, 137);
   final Color kDarkMain = Color(0xFF161722);
   final Color kUnselectedItemColor = const Color(0xFF8A8B8F);
-  final Color kTextColor1 = const Color(0xFF86878B);
   final Color kTextColor2 = const Color(0xFF6c6c6c);
   final Color kUnSelectTabBar = const Color(0xFFD7D7D9);
   final Color kGreyMain = const Color(0xFFadadad);
+  final Color kGreyMain2 = const Color(0xFF86878B);
 }
 
 @immutable
@@ -97,30 +97,49 @@ class _Navigation {
     BuildContext context,
     AppLocalizations localizations,
     int currentIndex,
-  ) =>
-      [
-        BottomNavigationBarItem(
-          icon: Assets.icons.svg.home.svg(),
-          label: localizations.homeBottomNavigationBar,
-          activeIcon: Assets.icons.svg.homeActive.svg(),
+  ) {
+    final color = currentIndex == 0
+        ? $constants.appColor.kWhite
+        : $constants.appColor.kGreyMain2;
+    return [
+      BottomNavigationBarItem(
+        icon: Assets.icons.svg.homeBottomBar.svg(),
+        label: localizations.homeBottomNavigationBar,
+        activeIcon: Assets.icons.svg.homeActiveBottomBar.svg(),
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(
+          Icons.shopping_bag_outlined,
+          color: color,
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.shopping_bag),
-          label: localizations.shopBottomNavigationBar,
+        label: localizations.shopBottomNavigationBar,
+      ),
+      BottomNavigationBarItem(
+        icon: PlusButton(
+          currentIndex: currentIndex,
         ),
-        BottomNavigationBarItem(
-          icon: PlusButton(
-            currentIndex: currentIndex,
+        label: '',
+      ),
+      BottomNavigationBarItem(
+        icon: Assets.icons.svg.messageBottomBar.svg(
+          colorFilter: ColorFilter.mode(
+            color,
+            BlendMode.srcIn,
           ),
-          label: '',
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.message_rounded),
-          label: localizations.inboxBottomNavigationBar,
+        label: localizations.inboxBottomNavigationBar,
+        activeIcon: Assets.icons.svg.messageActiveBottomBar.svg(),
+      ),
+      BottomNavigationBarItem(
+        icon: Assets.icons.svg.accountBottomBar.svg(
+          colorFilter: ColorFilter.mode(
+            color,
+            BlendMode.srcIn,
+          ),
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: localizations.userBottomNavigationBar,
-        ),
-      ];
+        label: localizations.userBottomNavigationBar,
+        activeIcon: Assets.icons.svg.accountActiveBottomBar.svg(),
+      ),
+    ];
+  }
 }

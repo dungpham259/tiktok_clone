@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tiktok/core/common_widgets/loading_progress/loading_progress.dart';
 import 'package:tiktok/core/utils/helper/bar_helper.dart';
 import 'package:tiktok/features/app/cubit/app_cubit.dart';
 import 'package:tiktok/features/app/models/alert_model.dart';
@@ -37,6 +38,7 @@ class ShopPage extends StatelessWidget {
                   ),
                   child: const Text("Throw Test Exception"),
                 ),
+                LoadingProgress(),
               ],
             );
           },

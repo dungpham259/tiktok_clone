@@ -47,7 +47,7 @@ abstract class BarHelper {
       );
     } else if (alert.type == AlertType.notification) {
       bar = _createAlertModal(
-          message: message, color: $constants.appColor.kGreyMain);
+          message: message, color: $constants.appColor.kGreyMain2);
     } else if (alert.type == AlertType.quiet) {
       return;
     } else {

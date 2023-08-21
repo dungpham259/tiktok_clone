@@ -1,4 +1,3 @@
-import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tiktok/core/constants/constants.dart';
@@ -133,15 +132,15 @@ SystemUiOverlayStyle createOverlayStyle({
   );
 }
 
-Future<ColorScheme?> _getDynamicColors({required Brightness brightness}) async {
-  try {
-    final corePalette = await DynamicColorPlugin.getCorePalette();
+// Future<ColorScheme?> _getDynamicColors({required Brightness brightness}) async {
+//   try {
+//     final corePalette = await DynamicColorPlugin.getCorePalette();
 
-    return corePalette?.toColorScheme(brightness: brightness);
-  } on PlatformException {
-    return Future.value();
-  }
-}
+//     return corePalette?.toColorScheme(brightness: brightness);
+//   } on PlatformException {
+//     return Future.value();
+//   }
+// }
 
 ColorScheme _getColorScheme({
   Color? color,

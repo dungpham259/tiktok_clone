@@ -11,6 +11,16 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
 
+class $AssetsAnimationsGen {
+  const $AssetsAnimationsGen();
+
+  /// File path: assets/animations/progress_loading.json
+  String get progressLoading => 'assets/animations/progress_loading.json';
+
+  /// List of all assets
+  List<String> get values => [progressLoading];
+}
+
 class $AssetsEnvGen {
   const $AssetsEnvGen();
 
@@ -31,40 +41,102 @@ class $AssetsIconsGen {
   $AssetsIconsSvgGen get svg => const $AssetsIconsSvgGen();
 }
 
+class $AssetsLogoGen {
+  const $AssetsLogoGen();
+
+  /// File path: assets/logo/adaptive_icon_foreground.png
+  AssetGenImage get adaptiveIconForeground =>
+      const AssetGenImage('assets/logo/adaptive_icon_foreground.png');
+
+  /// File path: assets/logo/logo.png
+  AssetGenImage get logo => const AssetGenImage('assets/logo/logo.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [adaptiveIconForeground, logo];
+}
+
 class $AssetsIconsPngGen {
   const $AssetsIconsPngGen();
-
-  /// File path: assets/icons/png/Heart Icon.png
-  AssetGenImage get heartIcon =>
-      const AssetGenImage('assets/icons/png/Heart Icon.png');
 
   /// File path: assets/icons/png/footstep.png
   AssetGenImage get footstep =>
       const AssetGenImage('assets/icons/png/footstep.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [heartIcon, footstep];
+  List<AssetGenImage> get values => [footstep];
 }
 
 class $AssetsIconsSvgGen {
   const $AssetsIconsSvgGen();
 
-  /// File path: assets/icons/svg/home.svg
-  SvgGenImage get home => const SvgGenImage('assets/icons/svg/home.svg');
+  /// File path: assets/icons/svg/account_active_bottom_bar.svg
+  SvgGenImage get accountActiveBottomBar =>
+      const SvgGenImage('assets/icons/svg/account_active_bottom_bar.svg');
 
-  /// File path: assets/icons/svg/home_active.svg
-  SvgGenImage get homeActive =>
-      const SvgGenImage('assets/icons/svg/home_active.svg');
+  /// File path: assets/icons/svg/account_bottom_bar.svg
+  SvgGenImage get accountBottomBar =>
+      const SvgGenImage('assets/icons/svg/account_bottom_bar.svg');
+
+  /// File path: assets/icons/svg/comment.svg
+  SvgGenImage get comment => const SvgGenImage('assets/icons/svg/comment.svg');
+
+  /// File path: assets/icons/svg/disc.svg
+  SvgGenImage get disc => const SvgGenImage('assets/icons/svg/disc.svg');
+
+  /// File path: assets/icons/svg/heart .svg
+  SvgGenImage get heart => const SvgGenImage('assets/icons/svg/heart .svg');
+
+  /// File path: assets/icons/svg/home_active_bottom_bar.svg
+  SvgGenImage get homeActiveBottomBar =>
+      const SvgGenImage('assets/icons/svg/home_active_bottom_bar.svg');
+
+  /// File path: assets/icons/svg/home_bottom_bar.svg
+  SvgGenImage get homeBottomBar =>
+      const SvgGenImage('assets/icons/svg/home_bottom_bar.svg');
+
+  /// File path: assets/icons/svg/message_active_bottom_bar.svg
+  SvgGenImage get messageActiveBottomBar =>
+      const SvgGenImage('assets/icons/svg/message_active_bottom_bar.svg');
+
+  /// File path: assets/icons/svg/message_bottom_bar.svg
+  SvgGenImage get messageBottomBar =>
+      const SvgGenImage('assets/icons/svg/message_bottom_bar.svg');
+
+  /// File path: assets/icons/svg/search_active_bottom_bar.svg
+  SvgGenImage get searchActiveBottomBar =>
+      const SvgGenImage('assets/icons/svg/search_active_bottom_bar.svg');
+
+  /// File path: assets/icons/svg/search_bottom_bar.svg
+  SvgGenImage get searchBottomBar =>
+      const SvgGenImage('assets/icons/svg/search_bottom_bar.svg');
+
+  /// File path: assets/icons/svg/share.svg
+  SvgGenImage get share => const SvgGenImage('assets/icons/svg/share.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [home, homeActive];
+  List<SvgGenImage> get values => [
+        accountActiveBottomBar,
+        accountBottomBar,
+        comment,
+        disc,
+        heart,
+        homeActiveBottomBar,
+        homeBottomBar,
+        messageActiveBottomBar,
+        messageBottomBar,
+        searchActiveBottomBar,
+        searchBottomBar,
+        share
+      ];
 }
 
 class Assets {
   Assets._();
 
+  static const $AssetsAnimationsGen animations = $AssetsAnimationsGen();
   static const $AssetsEnvGen env = $AssetsEnvGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsLogoGen logo = $AssetsLogoGen();
 }
 
 class AssetGenImage {

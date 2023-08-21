@@ -79,7 +79,7 @@ class OptionSettings extends StatelessWidget {
       icon: icon != null
           ? Icon(
               icon,
-              color: $constants.appColor.kGreyMain,
+              color: $constants.appColor.kGreyMain2,
             )
           : null,
       subLabel: sublabel,
@@ -98,7 +98,7 @@ class OptionSettings extends StatelessWidget {
               gapW8,
               Icon(
                 Icons.arrow_forward_ios,
-                color: $constants.appColor.kGreyMain,
+                color: $constants.appColor.kGreyMain2,
                 size: 12,
               ),
             ],

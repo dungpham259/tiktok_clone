@@ -40,6 +40,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   [
                     Center(
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           _avatar(),
                           gapH12,
@@ -69,7 +70,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   slivers: <Widget>[
                     // use CustomOverlapInjector on top of your inner CustomScrollView
                     CustomOverlapInjector(),
-                    _tabBody1(),
+                    _tabBody(),
                   ],
                 ),
               ),
@@ -87,8 +88,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
     super.initState();
   }
 
-  Widget _tabBody1() {
-    print('Render again');
+  Widget _tabBody() {
+    // print('Render again');
     return SliverGrid.builder(
       // controller: scroll,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -167,7 +168,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Divider(
                         thickness: 0,
                         height: Sizes.p20,
-                        color: $constants.appColor.kTextColor1.withOpacity(0.5),
+                        color: $constants.appColor.kGreyMain2.withOpacity(0.5),
                       ),
                       TextShowHorizontal(
                         label: localizations.myQrCode,
@@ -177,7 +178,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Divider(
                         thickness: 0,
                         height: Sizes.p20,
-                        color: $constants.appColor.kTextColor1.withOpacity(0.5),
+                        color: $constants.appColor.kGreyMain2.withOpacity(0.5),
                       ),
                       TextShowHorizontal(
                         label: localizations.settingAndPrivacy,
@@ -272,43 +273,50 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  Row _infoNum() {
+  Widget _infoNum() {
     final localizations = context.localizations;
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        _infoDisplay(
-          info: '1956',
-          title: localizations.followingCountInfo,
-        ),
-        gapW12,
-        const SizedBox(
-          height: Sizes.p16,
-          child: VerticalDivider(
-            width: Sizes.p16,
-            thickness: 0,
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: context.screenWidth * 0.15),
+      child: Row(
+        children: [
+          Expanded(
+            child: _infoDisplay(
+              info: '1956',
+              title: localizations.followingCountInfo,
+            ),
           ),
-        ),
-        gapW12,
-        _infoDisplay(
-          info: '175',
-          title: localizations.followerCountInfo,
-        ),
-        gapW12,
-        const SizedBox(
-          height: Sizes.p16,
-          child: VerticalDivider(
-            width: Sizes.p16,
-            thickness: 0,
+          SizedBox(
+            height: Sizes.p16,
+            width: Sizes.p4,
+            child: VerticalDivider(
+              width: Sizes.p16,
+              thickness: 0,
+              color: $constants.appColor.kGreyMain2,
+            ),
           ),
-        ),
-        gapW12,
-        _infoDisplay(
-          info: '859',
-          title: localizations.likeCountInfo,
-        ),
-      ],
+          Expanded(
+            child: _infoDisplay(
+              info: '175',
+              title: localizations.followerCountInfo,
+            ),
+          ),
+          SizedBox(
+            height: Sizes.p16,
+            width: Sizes.p4,
+            child: VerticalDivider(
+              width: Sizes.p16,
+              thickness: 0,
+              color: $constants.appColor.kGreyMain2,
+            ),
+          ),
+          Expanded(
+            child: _infoDisplay(
+              info: '859',
+              title: localizations.likeCountInfo,
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -328,7 +336,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
         Text(
           title,
           style: context.textTheme.bodyMedium!.copyWith(
-            color: $constants.appColor.kTextColor1,
+            color: $constants.appColor.kGreyMain2,
+            fontSize: 14,
           ),
         ),
       ],
@@ -344,7 +353,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         TextShowHorizontal(
           label: localizations.yourOrders,
           textStyleLabel: context.textTheme.titleMedium!.copyWith(
-            fontSize: 15,
+            fontSize: 14,
           ),
           icon: Icon(
             Icons.shopping_cart_outlined,

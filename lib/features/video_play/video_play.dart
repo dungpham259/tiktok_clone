@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok/features/video_play/widgets/controls_handle.dart';
 import 'package:tiktok/features/video_play/widgets/controls_overlay.dart';
+import 'package:tiktok/features/video_play/widgets/left_panel.dart';
+import 'package:tiktok/features/video_play/widgets/right_panel.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerScreen extends StatefulWidget {
@@ -43,9 +44,14 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
           alignment: Alignment.bottomCenter,
           children: [
             VideoPlayer(_controller),
-            ClosedCaption(text: _controller.value.caption.text),
             ControlsOverlay(controller: _controller),
-            ControlsHandle(
+            LeftPanel(
+              name: 'aaaa',
+              caption: 'dfsfsfsf',
+              songName: 'dsdsds',
+            ),
+            RightPanel(
+              videoController: _controller,
               avatarUrl: '',
             ),
             VideoProgressIndicator(_controller,

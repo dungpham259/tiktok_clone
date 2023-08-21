@@ -23,4 +23,50 @@ class Format {
     }
     return '';
   }
+
+  static String formatCountNumber(int number) {
+    if (number >= 1000000) {
+      double value = number / 1000000;
+      return value.toStringAsFixed(1) + 'M';
+    } else if (number >= 1000) {
+      double value = number / 1000;
+      return value.toStringAsTruncated(1) + 'K';
+    } else {
+      return number.toString();
+    }
+  }
+}
+
+extension on double {
+  // Like [toStringAsFixed] but truncates (toward zero) to the specified
+  // number of fractional digits instead of rounding.
+  String toStringAsTruncated(int fractionDigits) {
+    // Require same limits as [toStringAsFixed].
+    assert(fractionDigits >= 0);
+    assert(fractionDigits <= 20);
+
+    if (fractionDigits == 0) {
+      return truncateToDouble().toString();
+    }
+
+    // [toString] will represent very small numbers in exponential form.
+    // Instead use [toStringAsFixed] with the maximum number of fractional
+    // digits.
+    var s = toStringAsFixed(20);
+
+    // [toStringAsFixed] will still represent very large numbers in
+    // exponential form.
+    if (s.contains('e')) {
+      // Ignore values in exponential form.
+      return s;
+    }
+
+    // Ignore unrecognized values (e.g. NaN, +infinity, -infinity).
+    var i = s.indexOf('.');
+    if (i == -1) {
+      return s;
+    }
+
+    return s.substring(0, i + fractionDigits + 1);
+  }
 }
