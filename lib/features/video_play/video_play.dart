@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok/features/video_play/widgets/controls_overlay.dart';
+import 'package:tiktok/features/video_play/widgets/favorite_tap.dart';
 import 'package:tiktok/features/video_play/widgets/left_panel.dart';
 import 'package:tiktok/features/video_play/widgets/right_panel.dart';
 import 'package:video_player/video_player.dart';
@@ -43,7 +44,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
         child: Stack(
           alignment: Alignment.bottomCenter,
           children: [
-            VideoPlayer(_controller),
+            DoubleTapLike(child: VideoPlayer(_controller)),
             ControlsOverlay(controller: _controller),
             LeftPanel(
               name: 'aaaa',

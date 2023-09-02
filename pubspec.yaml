@@ -80,6 +80,8 @@ dependencies:
   connectivity_plus: ^4.0.2
   like_button: ^2.0.5
   lottie: ^2.6.0
+  flutter_native_splash: ^2.3.2
+  envied: ^0.3.0+3
 
 dev_dependencies:
   flutter_test:
@@ -91,6 +93,7 @@ dev_dependencies:
   flutter_gen: ^5.3.1
   injectable_generator: ^2.1.6
   json_serializable: ^6.7.1
+  envied_generator: ^0.3.0+3
 
 # output assets generation
 scripts: derry.yaml
@@ -158,3 +161,17 @@ flutter:
           weight: 400
         - asset: assets/fonts/Nunito/Nunito-Light.ttf
           weight: 300
+
+flutter_native_splash:
+  color: "#161722"
+  image: assets/logo/adaptive_icon_foreground.png
+  color_dark: "#161722"
+  image_dark: assets/logo/adaptive_icon_foreground.png
+
+  android_12:
+    image: assets/logo/adaptive_icon_foreground.png
+    icon_background_color: "#161722"
+    image_dark: assets/logo/adaptive_icon_foreground.png
+    icon_background_color_dark: "#161722"
+
+  web: true

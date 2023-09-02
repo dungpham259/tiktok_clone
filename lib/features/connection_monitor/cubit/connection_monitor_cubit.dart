@@ -14,15 +14,17 @@ class ConnectionMonitorCubit extends Cubit<ConnectionMonitorState> {
             connectionStatus: ConnectionStatus.initial()));
   final Connectivity _connectivity;
 
-  void initial() {
+  void initial() async {
     _connectivity.onConnectivityChanged.listen(
-      (event) {
+      (event) async {
         if (event == ConnectivityResult.none) {
-          emit(
-            state.copyWith(
-              connectionStatus: ConnectionStatus.networkUnavailable(),
-            ),
-          );
+          final connectionStatus = await _connectivity.checkConnectivity();
+          if (connectionStatus == ConnectivityResult.none)
+            emit(
+              state.copyWith(
+                connectionStatus: ConnectionStatus.networkUnavailable(),
+              ),
+            );
         } else {
           if (state.connectionStatus == ConnectionStatus.networkUnavailable())
             emit(
